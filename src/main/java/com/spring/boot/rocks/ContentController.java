@@ -56,4 +56,9 @@ public class ContentController {
         return "users";
     }
     
+    @RequestMapping("/index")
+    public String indexContent() {
+        return "index";
+    }
+    
 }

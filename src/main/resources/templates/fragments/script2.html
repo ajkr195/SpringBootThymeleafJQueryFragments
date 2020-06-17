@@ -1,0 +1,27 @@
+<script th:fragment="includeScript2">
+	$(document).ready(function() {
+
+		//call function when page is loaded
+		getContent();
+
+		//set on change listener
+		$('#selection').change(getContent);
+
+		function getContent() {
+
+			//create url to request fragment
+			var url = "/";
+			if ($('#selection').val() === "Content 1") {
+				url = url + "content1";
+			}
+
+			if ($('#selection').val() === "Content 2") {
+				url = url + "content2";
+			}
+
+			//load fragment and replace content
+			$('#replace_div').load(url);
+
+		}
+	})
+</script>

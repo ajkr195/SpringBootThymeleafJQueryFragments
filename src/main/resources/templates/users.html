@@ -1,127 +1,97 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
 <head>
-<title>Index</title>
-<link rel="stylesheet"
-	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-	<link rel="stylesheet"
-	th:href="@{/css/main.css}" />
+<title>Springboot Rocks</title>
 </head>
-
 <body>
-	<div class="container">
-	<div class="d-flex align-items-center justify-content-center">
-		<select id="statusSelection" class="col-sm-2 form-control form-control-sm">
-			<option>All</option>
-			<option>Inative</option>
-			<option>Active</option>
-		</select>
-</div>
-<br/>
+	<div layout:fragment="content">
+		<div class="container">
+			<section class="my-1">
 
-		<div id="fragtable" th:fragment="resultsList">
 
-			<table id="tableusersall" class="table table-bordered table-hover table_morecondensed"
-				style="width: 100%">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>UserName</th>
-						<th>Active?</th>
-						<th>Email</th>
-						<th>First name</th>
-						<th>Last name</th>
-						<th>Address</th>
-						<th>Date Created</th>
-						<th>Created By</th>
-						<th>Last Modified</th>
-						<th>Modified By</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="user : ${users}">
-						<td th:text="${user.id}"></td>
-						<td th:text="${user.username}"></td>
-						<td><div th:if="${user.userenabled}">
-								<span class="badge badge-success">Yes</span>
-							</div>
-							<div th:if="${!user.userenabled}">
-								<span class="badge badge-danger">No</span>
-							</div></td>
-						<td th:text="${user.useremail}"></td>
-						<td th:text="${user.userfirstname}"></td>
-						<td th:text="${user.userlastname}"></td>
-						<td th:text="${user.useraddress}"></td>
-						<td th:text="${user.userdatecreated}"></td>
-						<td th:text="${user.usercreatedby}"></td>
-						<td th:text="${user.userdatemodified}"></td>
-						<td th:text="${user.usermodifiedby}"></td>
+				<div class="d-flex align-items-center justify-content-center">
+					<select id="statusSelection"
+						class="col-sm-2 form-control form-control-sm">
+						<option>All</option>
+						<option>Inative</option>
+						<option>Active</option>
+					</select>
+				</div>
+				<br />
 
-						<td><a th:href="@{userfindOne/(id=${user.id})}">View </a> <a
-							th:href="@{'/userEdit/' + ${user.id}}">Edit</a> <a
-							th:href="@{/userDelete/{id}(id=${user.id})}"> Delete</a></td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<th>Id</th>
-						<th>UserName</th>
-						<th>Active?</th>
-						<th>Email</th>
-						<th>First name</th>
-						<th>Last name</th>
-						<th>Address</th>
-						<th>Date Created</th>
-						<th>Created By</th>
-						<th>Last Modified</th>
-						<th>Modified By</th>
-						<th>Actions</th>
-					</tr>
-				</tfoot>
-			</table>
+				<div id="fragtable" th:fragment="resultsList">
+
+					<table id="tableusersall"
+						class="table table-bordered table-hover table_morecondensed"
+						style="width: 100%">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>UserName</th>
+								<th>Active?</th>
+								<th>Email</th>
+								<th>First name</th>
+								<th>Last name</th>
+								<th>Address</th>
+								<th>Date Created</th>
+								<th>Created By</th>
+								<th>Last Modified</th>
+								<th>Modified By</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="user : ${users}">
+								<td th:text="${user.id}"></td>
+								<td th:text="${user.username}"></td>
+								<td><div th:if="${user.userenabled}">
+										<span class="badge badge-success">Yes</span>
+									</div>
+									<div th:if="${!user.userenabled}">
+										<span class="badge badge-danger">No</span>
+									</div></td>
+								<td th:text="${user.useremail}"></td>
+								<td th:text="${user.userfirstname}"></td>
+								<td th:text="${user.userlastname}"></td>
+								<td th:text="${user.useraddress}"></td>
+								<td th:text="${user.userdatecreated}"></td>
+								<td th:text="${user.usercreatedby}"></td>
+								<td th:text="${user.userdatemodified}"></td>
+								<td th:text="${user.usermodifiedby}"></td>
+
+								<td><a th:href="@{userfindOne/(id=${user.id})}">View </a> <a
+									th:href="@{'/userEdit/' + ${user.id}}">Edit</a> <a
+									th:href="@{/userDelete/{id}(id=${user.id})}"> Delete</a></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>UserName</th>
+								<th>Active?</th>
+								<th>Email</th>
+								<th>First name</th>
+								<th>Last name</th>
+								<th>Address</th>
+								<th>Date Created</th>
+								<th>Created By</th>
+								<th>Last Modified</th>
+								<th>Modified By</th>
+								<th>Actions</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+
+			</section>
 		</div>
-
 	</div>
-	<script type="text/javascript"
-		th:src="@{/webjars/jquery/jquery.min.js}"></script>
 
-	<script>
-		$(document).ready(function() {
 
-			//call function when page is loaded
-			getContent();
 
-			//set on change listener
-			$('#statusSelection').change(getContent);
 
-			function getContent() {
 
-				//create url to request fragment
-				var url = "/";
-
-				if ($('#statusSelection').val() === "-None-") {
-					url = url;
-				}
-
-				if ($('#statusSelection').val() === "Active") {
-					url = url + "active";
-				}
-
-				if ($('#statusSelection').val() === "Inative") {
-					url = url + "inactive";
-				}
-
-				if ($('#statusSelection').val() === "All") {
-					url = url + "all";
-				}
-
-				//load fragment and replace content
-				$('#fragtable').load(url);
-			}
-		})
-	</script>
 </body>
 </html>

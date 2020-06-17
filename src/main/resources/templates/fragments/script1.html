@@ -1,0 +1,35 @@
+<script th:fragment="includeScript1">
+		$(document).ready(function() {
+
+			//call function when page is loaded
+			getContent();
+
+			//set on change listener
+			$('#statusSelection').change(getContent);
+
+			function getContent() {
+
+				//create url to request fragment
+				var url = "/";
+
+				if ($('#statusSelection').val() === "-None-") {
+					url = url;
+				}
+
+				if ($('#statusSelection').val() === "Active") {
+					url = url + "active";
+				}
+
+				if ($('#statusSelection').val() === "Inative") {
+					url = url + "inactive";
+				}
+
+				if ($('#statusSelection').val() === "All") {
+					url = url + "all";
+				}
+
+				//load fragment and replace content
+				$('#fragtable').load(url);
+			}
+		})
+	</script>
