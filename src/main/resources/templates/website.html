@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Index</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+
+<body>
+<div class="container">
+
+
+	<select id="selection">
+		<option>Content 1</option>
+		<option>Content 2</option>
+	</select>
+	<div id="replace_div">Content goes Here</div>
+
+
+</div>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/jquery.min.js}"></script>
+
+	<script>
+		$(document).ready(function() {
+
+			//call function when page is loaded
+			getContent();
+
+			//set on change listener
+			$('#selection').change(getContent);
+
+			function getContent() {
+
+				//create url to request fragment
+				var url = "/";
+				if ($('#selection').val() === "Content 1") {
+					url = url + "content1";
+				}
+
+				if ($('#selection').val() === "Content 2") {
+					url = url + "content2";
+				}
+
+				//load fragment and replace content
+				$('#replace_div').load(url);
+
+			}
+		})
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+    </head>
+
+    <body>
+        <div th:fragment="content1">
+            This is Content 1
+        </div>
+
+        <div th:fragment="content2">
+            This is Content 2
+         </div>
+         
+         <div id="fragtable" th:fragment="resultsList">
+
+		<table id="tableusersall" class="table table-bordered table-hover"
+			style="width: 100%">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>UserName</th>
+					<th>Active?</th>
+					<th>Email</th>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Address</th>
+					<th>Date Created</th>
+					<th>Created By</th>
+					<th>Last Modified</th>
+					<th>Modified By</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.username}"></td>
+					<td><div th:if="${user.userenabled}">
+							<span class="badge badge-success">Yes</span>
+						</div>
+						<div th:if="${!user.userenabled}">
+							<span class="badge badge-danger">No</span>
+						</div></td>
+					<td th:text="${user.useremail}"></td>
+					<td th:text="${user.userfirstname}"></td>
+					<td th:text="${user.userlastname}"></td>
+					<td th:text="${user.useraddress}"></td>
+					<td th:text="${user.userdatecreated}"></td>
+					<td th:text="${user.usercreatedby}"></td>
+					<td th:text="${user.userdatemodified}"></td>
+					<td th:text="${user.usermodifiedby}"></td>
+
+					<td><a th:href="@{userfindOne/(id=${user.id})}">View </a> <a
+						th:href="@{'/userEdit/' + ${user.id}}">Edit</a> <a
+						th:href="@{/userDelete/{id}(id=${user.id})}"> Delete</a></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Id</th>
+					<th>UserName</th>
+					<th>Active?</th>
+					<th>Email</th>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Address</th>
+					<th>Date Created</th>
+					<th>Created By</th>
+					<th>Last Modified</th>
+					<th>Modified By</th>
+					<th>Actions</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+    </body>
+</html>
