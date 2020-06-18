@@ -1,4 +1,4 @@
-package com.spring.boot.rocks;
+package com.spring.boot.rocks.model;
 
 import java.io.Serializable;
 import java.util.Date;

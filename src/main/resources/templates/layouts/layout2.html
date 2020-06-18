@@ -2,23 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-
+<div th:replace="fragments/css :: css"></div>
+<div th:replace="fragments/nav :: nav"></div>
 </head>
 
 <body>
-	<div th:replace="fragments/css :: css"></div>
-	<div th:replace="fragments/nav :: nav"></div>
-
+<div class="container mt-2">
 
 	<section layout:fragment="content"></section>
 
-
-	<div th:replace="fragments/scripts :: scripts"></div>
-	<div th:replace="fragments/script2 :: includeScript2"></div>
-	<div th:replace="fragments/footer :: footer"></div>
+</div>
 </body>
-
-
-
-
+<div th:replace="fragments/scripts :: scripts"></div>
+<div th:replace="fragments/script2 :: includeScript2"></div>
+<div th:replace="fragments/footer :: footer"></div>
 </html>
