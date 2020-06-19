@@ -167,50 +167,6 @@ th {
 	padding-top: 2px;
 }
 
-.modal-header {
-	padding: 1px 25px;
-	border-bottom: 2px solid gray;
-	background-color: #d9534f;
-	color: white;
-}
-
-.close {
-	margin: 0;
-	position: absolute;
-	top: -10px;
-	right: -10px;
-	width: 23px;
-	height: 23px;
-	border-radius: 23px;
-	background-color: #00aeef;
-	color: #ffe300;
-	font-size: 10px;
-	opacity: 100;
-	z-index: 10;
-}
-
-.close-icon {
-	margin: 0;
-	position: absolute;
-	display: block;
-	box-sizing: border-box;
-	top: -10px;
-	right: -10px;
-	width: 25px;
-	height: 25px;
-	border-width: 3px;
-	border-style: solid;
-	border-color: red;
-	border-radius: 100%;
-	background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white
-		46%, white 56%, transparent 56%, transparent 100%),
-		-webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white
-		46%, white 56%, transparent 56%, transparent 100%);
-	background-color: red;
-	box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
-	transition: all 0.3s ease;
-	z-index: 10;
-}
 
 .rotated {
 	transform: rotate(360deg);

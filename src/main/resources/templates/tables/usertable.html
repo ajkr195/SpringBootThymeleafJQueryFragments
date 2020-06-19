@@ -15,7 +15,7 @@
 					<th>Created By</th>
 					<th>Last Modified</th>
 					<th>Modified By</th>
-					<th>Actions</th>
+<!-- 					<th>Actions</th> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -37,9 +37,9 @@
 					<td th:text="${user.userdatemodified}"></td>
 					<td th:text="${user.usermodifiedby}"></td>
 
-					<td><a th:href="@{userfindOne/(id=${user.id})}">View </a> <a
-						th:href="@{'/userEdit/' + ${user.id}}">Edit</a> <a
-						th:href="@{/userDelete/{id}(id=${user.id})}"> Delete</a></td>
+<!-- 					<td><a th:href="@{findOne/(id=${user.id})}">View </a> <a -->
+<!-- 						th:href="@{'/userEdit/' + ${user.id}}">Edit</a> <a -->
+<!-- 						th:href="@{/userDelete/{id}(id=${user.id})}"> Delete</a></td> -->
 				</tr>
 			</tbody>
 			<tfoot>
@@ -55,7 +55,7 @@
 					<th>Created By</th>
 					<th>Last Modified</th>
 					<th>Modified By</th>
-					<th>Actions</th>
+<!-- 					<th>Actions</th> -->
 				</tr>
 			</tfoot>
 		</table>
