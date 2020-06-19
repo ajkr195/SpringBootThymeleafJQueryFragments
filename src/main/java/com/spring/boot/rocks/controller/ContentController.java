@@ -1,11 +1,15 @@
 package com.spring.boot.rocks.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.boot.rocks.model.AppUser;
 import com.spring.boot.rocks.repository.AppUserRepository;
@@ -59,9 +63,20 @@ public class ContentController {
         return "users";
     }
     
-    @RequestMapping("/index")
-    public String indexContent() {
-        return "index";
+    @RequestMapping("/user/{id}")
+    public String usersModalContent(@PathVariable("id") Long id, Model model) {
+    	
+    	Optional<AppUser> appUser = appUserRepository.findById(id);
+    	model.addAttribute("user", appUser);
+    	return "fragments/usermodal :: users";
     }
+    
+    
+    @GetMapping("/findOne") 
+	@ResponseBody
+	public Optional<AppUser> findOne (Long id) {
+		return appUserRepository.findById(id);
+	}
+    
     
 }

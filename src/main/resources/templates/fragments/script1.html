@@ -33,3 +33,33 @@
 			}
 		})
 	</script>
+
+<script type="text/javascript" th:fragment="includeModalScript">
+	function openUserModal(id) {
+		
+		$.ajax({
+			url: "/findOne?id="+ id,
+			success: function(data){
+				alert(id);
+				alert(data);
+				var myJSON = JSON.stringify(data);
+				
+				alert(myJSON);
+				
+				var tmpData = JSON.parse(myJSON);
+				var formattedJson = JSON.stringify(tmpData, null, ' ');
+				
+				alert(formattedJson);
+				
+				$('#myUserid').html('Id is : ' + data.id);
+				$('#myUserfirstname').html('Username is : ' + data.username);
+				$('#myUserlastname').html('UserEmail-Id is : ' + data.useremail);
+				$('#myUserphonenumber').html('FirstName is : ' + data.userfirstname);
+				$('#myUseremail').html('Lastname is : ' + data.userlastname);
+				$('#myUseraddress').html('Address is : ' + data.address);
+				$('#userDetailsModal').modal("show");
+			}
+			
+		});
+	}
+	</script>

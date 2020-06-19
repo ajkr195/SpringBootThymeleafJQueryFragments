@@ -19,7 +19,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="user : ${users}">
+				<tr th:each="user : ${users}"  th:onClick="'javascript:openUserModal(\''+ ${user.id} + '\');'">
 					<td th:text="${user.id}"></td>
 					<td th:text="${user.username}"></td>
 					<td><div th:if="${user.userenabled}">

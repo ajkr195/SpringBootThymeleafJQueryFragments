@@ -13,14 +13,20 @@
 			var url = "/";
 			if ($('#selection').val() === "Content 1") {
 				url = url + "content1";
+				$('#replace_div').load(url);
 			}
 
 			if ($('#selection').val() === "Content 2") {
 				url = url + "content2";
+				$('#replace_div').load(url);
+			} else {
+				
+				$('#replace_div').html('Please select dropdown');
+				
 			}
 
 			//load fragment and replace content
-			$('#replace_div').load(url);
+			
 
 		}
 	})
